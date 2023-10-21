@@ -31,6 +31,8 @@ const App = () => {
               <tr key={filme.id}>
                 <td>{filme.title}</td>
                 <td>{filme.release_date}</td>
+                <td>{filme.vote_average}</td>
+                <td><img src={`https://image.tmdb.org/t/p/w300${filme.poster_path}`} alt={filme.title} /></td>
                 <td>
                   {filme.genres && filme.genres.length > 0
                     ? filme.genres.map((genre) => genre.name).join(", ")
