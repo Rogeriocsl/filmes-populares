@@ -9,6 +9,8 @@ const App = () => {
       "https://api.themoviedb.org/3/movie/popular?api_key=d6a4e09d194a34b300a7bd1b4d36353f"
     );
     setFilmes(response.data.results);
+    console.log(filmes);
+
   };
 
   useEffect(() => {
