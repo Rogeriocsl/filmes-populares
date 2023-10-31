@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const App = () => {
+  {
+    /* api filmes 
   const [filmes, setFilmes] = useState([]);
 
   const fetchFilmes = async () => {
@@ -44,6 +46,36 @@ const App = () => {
             ))}
         </tbody>
       </table>
+    </div>
+  );
+};
+
+*/
+  }
+
+  const [myModels, setMyModels] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/myModels")
+      .then((response) => {
+        setMyModels(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro: " + error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>Meus Modelos</h1>
+      <ul>
+        {myModels.map((myModel) => (
+          <li key={myModel._id}>
+            <strong>{myModel.name}</strong>: {myModel.description}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
